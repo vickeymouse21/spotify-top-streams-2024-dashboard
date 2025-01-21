@@ -1,0 +1,38 @@
+# Max Streams
+Max Streams = MAX('Most Streamed Spotify Songs 2024'[Spotify Streams])
+
+
+
+# Average Stream Per Year = 
+CALCULATE(
+    AVERAGE('New Most Streamed Spotify Songs 2024'[Spotify Streams]),
+    ALLEXCEPT('New Most Streamed Spotify Songs 2024', 'New Most Streamed Spotify Songs 2024'[Year Release])
+)
+
+
+
+# Top Song Streams
+Top Song Streams = 
+CALCULATE(
+    SUM('Most Streamed Spotify Songs 2024'[Spotify Streams]),
+    'Most Streamed Spotify Songs 2024'[Spotify Streams] = MAX('Most Streamed Spotify Songs 2024'[Spotify Streams])
+)
+
+
+
+# Top Song vs Average Val
+Top Song vs Avg Val = 
+DIVIDE(
+    [Top Song Streams] - [Average Stream Per Year],
+    [Average Stream Per Year]
+)
+
+
+
+# Top Song vs AVG
+Top Song vs AVG = 
+VAR x = [Top Song vs Avg Val] RETURN
+
+IF(x > 0,
+FORMAT(x, "#.0%") & " " & UNICHAR( 9650),
+FORMAT(x, "#.0%") & " " & UNICHAR( 9660 ))

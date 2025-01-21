@@ -1,0 +1,54 @@
+Image HTML = 
+ Var x = 
+ CALCULATE(
+    MAX('Most Streamed Spotify Songs 2024'[Album Cover URL]),
+    'Most Streamed Spotify Songs 2024'[Spotify Streams] = MAX('Most Streamed Spotify Songs 2024'[Spotify Streams])
+ )
+ return
+
+ "
+ <!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Image Mid Section</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: transparent; /* Make background transparent for embedding */
+        }
+
+        .image-container {
+            width: 500px; /* Adjust the width */
+            height: 360px; /* Adjust the height */
+            overflow: hidden;
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            position: absolute;
+            width: auto;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class='image-container'>
+        <img src='"&x&"' alt='Centered Image'>
+    </div>
+</body>
+</html>
+"
