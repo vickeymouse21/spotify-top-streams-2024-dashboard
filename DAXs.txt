@@ -5,8 +5,8 @@ Max Streams = MAX('Most Streamed Spotify Songs 2024'[Spotify Streams])
 
 # Average Stream Per Year = 
 CALCULATE(
-    AVERAGE('New Most Streamed Spotify Songs 2024'[Spotify Streams]),
-    ALLEXCEPT('New Most Streamed Spotify Songs 2024', 'New Most Streamed Spotify Songs 2024'[Year Release])
+    AVERAGE('Most Streamed Spotify Songs 2024'[Spotify Streams]),
+    ALLEXCEPT('Most Streamed Spotify Songs 2024', 'New Most Streamed Spotify Songs 2024'[Year Release])
 )
 
 
